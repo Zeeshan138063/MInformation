@@ -1,0 +1,52 @@
+/*html, body { width: 100%; height: 100%;}*/
+/*body { background: radial-gradient(ellipse at center, rgba(194,234,219,1) 0%,rgba(227,215,242,1) 74%,rgba(227,215,242,1) 74%); background-size: 300%; padding: 3em; color: #333; font-family: 'Source Sans Pro'; font-size: 20px; font-weight: 300; }*/
+
+/*#searchform { display: block; margin: 0 auto; width: 100%; max-width: 500px; transform: translateY(10%); }*/
+
+/*span { font-size: 1.5em; }*/
+/*#search-bar { display: block; margin: .25em 0 0; width: 100%; padding: .25em .5em; font-size: 1.2em; }*/
+
+.output {
+    list-style: none;
+    width: 100%;
+    min-height: 0px;
+    border-top: 0 !important;
+    color: #767676;
+    font-size: .75em;
+    transition: min-height 0.2s;
+    position: absolute;
+    z-index: 5;
+}
+
+.output, #search-bar {
+    background: #fff;
+    border: 1px solid #767676;
+}
+
+.prediction-item {
+    padding: .5em .75em;
+    transition: color 0.2s, background 0.2s;
+}
+
+.output:hover .focus {
+    background: #fff;
+    color: #767676;
+}
+
+.prediction-item:hover, .focus,
+.output:hover .focus:hover {
+    background: #ddd;
+    color: #333;
+}
+
+.prediction-item:hover {
+    cursor: pointer;
+}
+
+.prediction-item strong {
+    color: #333;
+}
+
+.prediction-item:hover strong {
+    color: #000;
+}

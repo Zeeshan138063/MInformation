@@ -1,0 +1,84 @@
+
+
+
+<div class="page-content">
+    <div class="container-fluid">
+        <section class="tabs-section">
+            <div class="tabs-section-nav tabs-section-nav-icons">
+                <div class="tbl">
+                    <ul class="nav" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tabs-1-tab-1" role="tab" data-toggle="tab" aria-expanded="false">
+									<span class="nav-link-in">
+										<!--<i class="font-icon font-icon-cogwheel"></i>-->
+										<i class="font-icon font-icon-search"></i>
+										Live Search
+									</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#tabs-1-tab-2" role="tab" data-toggle="tab"
+                               aria-expanded="true">
+									<span class="nav-link-in">
+										<!--<span class="glyphicon glyphicon-music"></span>-->
+										<i class="font-icon font-icon-page"></i>
+										Static Search
+									</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div><!--.tabs-section-nav-->
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade" id="tabs-1-tab-1" aria-expanded="false">
+
+                    <h3 class="first">Web Search</h3>
+                    <p-autoComplete [(ngModel)]="b2Query" [suggestions]="filteredCountriesSingle"
+                                    (onKeyUp)="searchB2($event)" (completeMethod)="filterCountrySingle($event)"
+                                    field="name" [size]="30"
+                                    [minLength]="1">
+                        <ng-template let-country pTemplate="b2Query">
+
+                            <div class="prediction-item">{{country.name}}</div>
+
+
+                        </ng-template>
+                    </p-autoComplete>
+                </div><!--.tab-pane-->
+                <div role="tabpanel" class="tab-pane fade active in" id="tabs-1-tab-2" aria-expanded="true"><h3
+                        class="first">Twitter Search</h3>
+                    <p-autoComplete [(ngModel)]="twQuery" (onKeyUp)="searchTwitter($event)"
+                                    [suggestions]="filteredCountriesSingle"
+                                    (completeMethod)="filterCountrySingle($event)" field="name" [size]="30"
+                                    [minLength]="1">
+                        <ng-template let-country pTemplate="twQuery">
+
+                            <div class="prediction-item">{{country.name}}</div>
+
+
+                        </ng-template>
+                    </p-autoComplete>
+                    <br>
+                    <br>
+                    <br>
+
+                    <h3 class="first">Web Search</h3>
+                    <p-autoComplete [(ngModel)]="b2QueryStatic" [suggestions]="filteredsearchwords"
+                                    (onSelect)="searchB2Static($event)" (completeMethod)="filterSearchSingle($event)"
+                                    field="name" [size]="30"
+                                    [minLength]="1">
+                        <ng-template let-country pTemplate="b2QueryStatic">
+
+                            <div class="prediction-item">{{country.name}}</div>
+
+
+                        </ng-template>
+                    </p-autoComplete>
+                </div><!--.tab-pane-->
+            </div><!--.tab-content-->
+        </section>
+
+
+    </div>
+</div>

@@ -1,0 +1,47 @@
+
+.btn {
+  position:relative;
+  width:100%;
+  border-radius:6px;
+  border:0;
+  background:#cc0000;
+  font-size: 2em !important;
+  color:#fff;
+  text-shadow:1px 1px 0px #cc0000;
+  box-shadow:0px 3px 0px #cc0000;
+}
+.signin-img {
+  text-align: center;
+}
+.btn:active {
+  top:3px;
+  box-shadow:none;
+}
+
+h6 {
+  text-align:center;
+  padding:20px;
+  padding-top:35px;
+  color:#777;
+  cursor:pointer;
+}
+
+.social {
+  display:none;
+}
+
+.fb {
+  margin-top:15px;
+  background:#3b5998;
+  box-shadow:0px 3px 0px #2c416e;
+}
+
+.tw {
+  background:#00acee;
+  box-shadow:0px 3px 0px #008dc3;
+}
+
+.google {
+  background:#db4a39;
+  box-shadow:0px 3px 0px #b93f31;
+}

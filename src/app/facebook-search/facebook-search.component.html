@@ -1,0 +1,117 @@
+
+<!--<div *ngIf="loaded">-->
+<div class="page-content">
+
+
+  <div class="container-fluid">
+    <h3>Search Facebook</h3>
+    <form class="example-form mb25">
+      <md-form-field class="example-full-width">
+        <input type="text" placeholder="Select Category" class="form-control" aria-label="Number" mdInput [formControl]="myControl" [mdAutocomplete]="auto">
+        <md-autocomplete #auto="mdAutocomplete" (optionSelected)="getFbPages($event)">
+          <md-option *ngFor="let option of filteredOptions | async"  [value]="option">
+            {{ option }}
+          </md-option>
+        </md-autocomplete>
+      </md-form-field>
+    </form>
+    <div class="example-container mat-elevation-z8">
+      <md-card> <div *ngIf="!loaded" style="text-align: center; font-weight: bold;font-size: large">Select category to view pages</div>
+        <div *ngIf="loaded" style="text-align: center; font-weight: bold;font-size: large">Facebook Pages</div>
+      <br *ngIf="loading"><br *ngIf="loading" >
+        <preloader-small></preloader-small>
+      </md-card>
+      <div [hidden]="!loaded" >
+      <div class="example-header">
+        <md-form-field floatPlaceholder="never">
+          <input mdInput #filter placeholder="Filter Facebook Pages">
+        </md-form-field>
+      </div>
+
+      <md-table  #table [dataSource]="dataSource" mdSort>
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- ID Column -->
+        <ng-container mdColumnDef="title" >
+          <md-header-cell *mdHeaderCellDef md-sort-header style="text-align: center; font-weight: bold;font-size: large"> Title </md-header-cell>
+          <md-cell *mdCellDef="let row" style="text-align: center; font-weight: bold;font-size: large" > {{row.title}} </md-cell>
+        </ng-container>
+
+        <!-- Progress Column -->
+        <ng-container mdColumnDef="category">
+          <md-header-cell *mdHeaderCellDef md-sort-header style="text-align: center; font-weight: bold;font-size: large"> Category </md-header-cell>
+          <md-cell *mdCellDef="let row" style="text-align: center; font-weight: bold;font-size: large"> {{row.category}} </md-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container mdColumnDef="location">
+          <md-header-cell *mdHeaderCellDef md-sort-header style="text-align: center; font-weight: bold;font-size: large" > Location </md-header-cell>
+          <md-cell *mdCellDef="let row" style="text-align: center; font-weight: bold;font-size: large"> {{row.location}} </md-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container mdColumnDef="likes">
+          <md-header-cell *mdHeaderCellDef style="text-align: center; font-weight: bold;font-size: large" md-sort-header> Likes </md-header-cell>
+          <md-cell *mdCellDef="let row" style="text-align: center; font-weight: bold;font-size: large" > {{row.likes}} </md-cell>
+        </ng-container>
+
+        <ng-container mdColumnDef="PTAT">
+          <md-header-cell *mdHeaderCellDef style="text-align: center; font-weight: bold;font-size: large" md-sort-header> Weekly Interaction Rate </md-header-cell>
+          <md-cell *mdCellDef="let row" style="text-align: center; font-weight: bold;font-size: large"> {{row.PTAT}} </md-cell>
+        </ng-container>
+
+        <ng-container mdColumnDef="ER">
+          <md-header-cell *mdHeaderCellDef style="text-align: center; font-weight: bold;font-size: large" md-sort-header> Engagement Rate </md-header-cell>
+          <md-cell *mdCellDef="let row" style="text-align: center;width: 243px; font-weight: bold;font-size: large" >
+
+            <div class="chart" style=" width: 143px;">
+              <!--{{(row.ER.replace('%',''))|round}}-->
+              <div class="bar bar-{{(row.ER.replace('%',''))|round}} navy">
+                <div class="face top">
+                  <div class="growing-bar"></div>
+                </div>
+                <div class="face side-0">
+                  <div class="growing-bar"></div>
+                </div>
+                <div class="face floor">
+                  <div class="growing-bar"></div>
+                </div>
+                <div class="face side-a"></div>
+                <div class="face side-b"></div>
+                <div class="face side-1">
+                  <div class="growing-bar"></div>
+                </div>
+              </div>
+            </div>
+
+             </md-cell>
+        </ng-container>
+
+        <ng-container mdColumnDef="LikeRank">
+          <md-header-cell *mdHeaderCellDef style="text-align: center;font-weight: bold;font-size: large" md-sort-header> Performance </md-header-cell>
+          <md-cell *mdCellDef="let row" style="text-align: center; font-weight: bold;font-size: large" >
+            <div class="chart">
+              {{row.LikeRank}}
+            </div>
+             </md-cell>
+        </ng-container>
+
+        <md-header-row *mdHeaderRowDef="displayedColumns" ></md-header-row>
+        <md-row *mdRowDef="let row; columns: displayedColumns;" (click)="handleRowClick(row)"></md-row>
+      </md-table>
+
+        <md-paginator #paginator
+                      [length]="exampleDatabase.data.length"
+                      [pageIndex]="0"
+                      [pageSize]="25"
+                      [pageSizeOptions]="[5, 10, 25, 100]">
+        </md-paginator>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>

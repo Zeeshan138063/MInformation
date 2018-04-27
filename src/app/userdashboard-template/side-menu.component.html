@@ -1,0 +1,110 @@
+<div class="mobile-menu-left-overlay"></div>
+<nav class="side-menu">
+    <div class="side-menu-avatar">
+        <div class="avatar-preview avatar-preview-100">
+            <!-- <img src="../../assets/img/avatar-1-256.png" alt=""> -->
+            <!--<p-fileUpload name="myfile[]" customUpload="true" (uploadHandler)="myUploader($event)"></p-fileUpload>-->
+            <img *ngIf="currentUserLoaded&&!currentUser.profile_image" src={{img}} alt="" (click)="processProfileImage()">
+            <img *ngIf="currentUserLoaded&&currentUser.profile_image" src={{currentUser.profile_image}} alt=""
+                 (click)="processProfileImage()">
+            <!--<input type="file" class="" #fileInput placeholder="Upload file..." />-->
+            <!--<button type="button" (click)="upload()">Upload</button>-->
+        </div>
+    </div>
+    <ul class="side-menu-list">
+        <li class="grey with-sub">
+            <a [routerLink]="['/dashboard']">
+                <i class="font-icon font-icon-home"></i>
+                <span class="lbl">Dashboard</span>
+            </a>
+        </li>
+        <li class="brown">
+            <a [routerLink]="['/twitter/categories']">
+                <i class="font-icon font-icon-widget"></i>
+                <span class="lbl">Twitter categories</span>
+            </a>
+        </li>
+
+        <!--<li class="magenta">-->
+        <!--<a href="#">-->
+        <!--<i class="font-icon font-icon-user"></i>-->
+        <!--<span class="lbl">Profile</span>-->
+        <!--</a>-->
+        <!--</li>-->
+
+        <li class="aquamarine">
+            <a [routerLink]="['/multi/search']">
+                <i class="font-icon font-icon-chart"></i>
+                <span class="lbl">Search</span>
+            </a>
+        </li>
+
+
+        <li class="blue with-sub">
+            <a [routerLink]="['/facebook/search']">
+                <i class="font-icon font-icon-facebook"></i>
+                <span class="lbl">Facebook</span>
+            </a>
+        </li>
+
+
+        <li class="red">
+            <a [routerLink]="['/youtube/search']">
+                <i class="font-icon font-icon-cam-video"></i>
+                <span class="lbl">Youtube</span>
+            </a>
+        </li>
+        <li class="gold with-sub">
+            <a [routerLink]="['/instagram/search']">
+                <i class="font-icon font-icon-instagram"></i>
+                <span class="lbl">Instagram</span>
+            </a>
+        </li>
+
+
+        <li class="blue">
+            <a [routerLink]="['/twitter/search']">
+                <i class="font-icon font-icon-twitter"></i>
+                <span class="lbl">Twitter</span>
+            </a>
+        </li>
+        <li class="magenta opened">
+            <a [routerLink]="['/blogosphere/search']">
+                <i class="font-icon font-icon-page"></i>
+                <span class="lbl">Blogosphere</span>
+            </a>
+        </li>
+        <li class="blue">
+            <a [routerLink]="['/linkedin/search']">
+                <i class="font-icon font-icon-linkedin"></i>
+                <span class="lbl">LinkedIN</span>
+            </a>
+        </li>
+        <li class="red">
+            <a [routerLink]="['/pinterest/search']">
+                <i class="font-icon font-icon-pin"></i>
+                <span class="lbl">Pinterest</span>
+            </a>
+        </li>
+        <li class="brown">
+            <a [routerLink]="['/optin/search']">
+                <i class="font-icon font-icon-pin"></i>
+                <span class="lbl">Opt-In Influencers</span>
+            </a>
+        </li>
+        <!--<li class="coral">-->
+        <!--<a href="#">-->
+        <!--<i class="font-icon font-icon-cogwheel"></i>-->
+        <!--<span class="lbl">Settings</span>-->
+        <!--</a>-->
+        <!--</li>-->
+
+        <li class="blue-dirty">
+            <a [routerLink]="['/login']">
+                <i class="font-icon glyphicon glyphicon-log-out"></i>
+                <span class="lbl">logout</span>
+            </a>
+        </li>
+
+    </ul>
+</nav><!--.side-menu-->

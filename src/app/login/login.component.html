@@ -1,0 +1,71 @@
+﻿<div class="page-center" style="min-height:100%;">
+    <div class="page-center-in">
+        <div class="container-fluid">
+            <div class="sign-box">
+            <form  name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm"  novalidate>
+                <div class="signin-img">
+                    <img src="../../assets/img/Logo.png" alt="Logo">
+                </div>
+                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+
+                    <label for="username" style="font-size: x-large;font-weight: bold;" >Username</label>
+                    <input type="text" class="form-control" name="username" style="font-size: xx-large;font-weight: bold;" [(ngModel)]="model.username" #username="ngModel"
+                           required/>
+                    <div style="font-size: x-large;font-weight: bold;color: red" *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+                </div>
+                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                    <label for="password" style="font-size: x-large;font-weight: bold;">Password</label>
+                    <input type="password" class="form-control" style="font-size: xx-large;font-weight: bold;" name="password" [(ngModel)]="model.password"
+                           #password="ngModel" required/>
+                    <div style="font-size: x-large;font-weight: bold;color: red" *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+                </div>
+              <!-- For reset--->
+
+              <div class="form-group">
+                <div class="checkbox float-left">
+                  <input type="checkbox" id="signed-in"/>
+                  <label for="signed-in" >Stay Signed In</label>
+                </div>
+                <div class="float-right reset">
+                  <a [routerLink]="['/reset-password']">Reset Password</a>
+                </div>
+              </div>
+
+              <!-- End reset--->
+                <div class="form-group">
+
+                    <button [disabled]="loading" style="font-size: x-large;font-weight: bold;" class="btn btn-rounded">Login</button>
+                    <img *ngIf="loading"
+                         src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAA
+                        GJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJ
+                        CgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAd
+                        Ka+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7W
+                        EYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhm
+                        KtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZf
+                        hYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunI
+                        nK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEA
+                        AQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJC
+                        gAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLW
+                        zpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtq
+                        lAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+
+                  <!--<p class="sign-note" style="font-size: large;font-weight: bold;">New to our website? <a [routerLink]="['/register']">Sign up</a></p>-->
+
+                </div>
+
+            </form>
+
+                    <!--<div class="row ">-->
+                        <!--<div class="col-lg-6">-->
+                    <!--<button id="facebook" disabled class="fb btn" (click)="doThisFB()" >Sign in with Facebook</button>-->
+                        <!--</div>-->
+                        <!--<div class="col-lg-6">-->
+                            <!--<button id="twitter" disabled class="tw btn" (click)="doThis()">Sign in with Twitter</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<button id="googleplus" disabled>Sign in with Google</button>-->
+
+            </div>
+        </div>
+    </div>
+</div><!--.page-center-->
